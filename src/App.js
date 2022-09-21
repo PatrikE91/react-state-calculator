@@ -6,6 +6,7 @@ function App() {
   const [operator, setOperator] = useState();
   const [pannelTwo, setPannelTwo] = useState(0);
   const [result, setResult] = useState(0)
+  const [storedNumber, setStoredNember] = useState(0)
 
   const setNumberOne = (i) => pannelOne === 0 ? setPannelOne(i) : setPannelOne(pannelOne + i);
   const setNumberTwo = (i) => pannelTwo === 0 ? setPannelTwo(i) : setPannelTwo(pannelTwo + i);
@@ -40,8 +41,9 @@ function App() {
           <button onClick={() => setNumberOne('7')}>7</button>
           <button onClick={() => setNumberOne('8')}>8</button>
           <button onClick={() => setNumberOne('9')}>9</button>
-          <button onClick={() => setNumberOne('0')}>0</button>
+          <button onClick={() => pannelOne === 0 ? console.log('hi') : setNumberOne('0')}>0</button>
           <button onClick={() => setPannelOne('0')}>Clear</button>
+          <button onClick={() => setPannelOne(storedNumber)}>Recall</button>
         </div>
       </div>
 
@@ -67,14 +69,16 @@ function App() {
           <button onClick={() => setNumberTwo('7')}>7</button>
           <button onClick={() => setNumberTwo('8')}>8</button>
           <button onClick={() => setNumberTwo('9')}>9</button>
-          <button onClick={() => setNumberTwo('0')}>0</button>
+          <button onClick={() => pannelTwo === 0 ? console.log('hi') : setNumberTwo('0')}>0</button>
           <button onClick={() => setPannelTwo('0')}>Clear</button>
+          <button onClick={() => setPannelTwo(storedNumber)}>Recall</button>
         </div>
       </div>
       <div className="panel answer">
         <p>{result}</p>
         <div>
           <button onClick={() => setResult(total(pannelOne, operator, pannelTwo)) }>=</button>
+          <button onClick={() => setStoredNember(result)}>Store</button>
         </div>
       </div>
     </div>
