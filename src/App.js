@@ -8,7 +8,7 @@ function App() {
   const [result, setResult] = useState(0)
 
   const setNumberOne = (i) => pannelOne === 0 ? setPannelOne(i) : setPannelOne(pannelOne + i);
-  const setNumberTwo = (i) => pannelOne === 0 ? setPannelTwo(i) : setPannelTwo(pannelTwo + i);
+  const setNumberTwo = (i) => pannelTwo === 0 ? setPannelTwo(i) : setPannelTwo(pannelTwo + i);
 
   const total = (numOne, operator, numTwo) => {
     if(operator === '+'){
@@ -41,7 +41,7 @@ function App() {
           <button onClick={() => setNumberOne('8')}>8</button>
           <button onClick={() => setNumberOne('9')}>9</button>
           <button onClick={() => setNumberOne('0')}>0</button>
-          <button onClick={() => setPannelOne(0)}>Clear</button>
+          <button onClick={() => setPannelOne('0')}>Clear</button>
         </div>
       </div>
 
@@ -68,7 +68,7 @@ function App() {
           <button onClick={() => setNumberTwo('8')}>8</button>
           <button onClick={() => setNumberTwo('9')}>9</button>
           <button onClick={() => setNumberTwo('0')}>0</button>
-          <button onClick={() => setPannelTwo(0)}>Clear</button>
+          <button onClick={() => setPannelTwo('0')}>Clear</button>
         </div>
       </div>
       <div className="panel answer">
