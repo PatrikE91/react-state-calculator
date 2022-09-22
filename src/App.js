@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   const [pannelOne, setPannelOne] = useState(0);
-  const [operator, setOperator] = useState();
+  const [operator, setOperator] = useState('+');
   const [pannelTwo, setPannelTwo] = useState(0);
   const [result, setResult] = useState(0)
   const [storedNumber, setStoredNember] = useState(0)
@@ -13,16 +13,20 @@ function App() {
 
   const total = (numOne, operator, numTwo) => {
     if(operator === '+'){
-     return parseInt(numOne) + parseInt(numTwo)
+     const total = parseFloat(numOne) + parseFloat(numTwo)
+     return total.valueOf()
     }
     if(operator === '-'){
-     return parseInt(numOne) - parseInt(numTwo)
+      const total = parseFloat(numOne) - parseFloat(numTwo)
+      return total.valueOf()
     }
     if(operator === '*'){
-     return parseInt(numOne) * parseInt(numTwo)
+      const total = parseFloat(numOne) * parseFloat(numTwo)
+      return total.valueOf()
     }
     if(operator === '/'){
-     return parseInt(numOne) / parseInt(numTwo)
+      const total = parseFloat(numOne) / parseFloat(numTwo)
+      return total.valueOf()
     }
   }
 
@@ -41,9 +45,10 @@ function App() {
           <button onClick={() => setNumberOne('7')}>7</button>
           <button onClick={() => setNumberOne('8')}>8</button>
           <button onClick={() => setNumberOne('9')}>9</button>
-          <button onClick={() => pannelOne === 0 ? console.log('hi') : setNumberOne('0')}>0</button>
-          <button onClick={() => setPannelOne('0')}>Clear</button>
+          <button onClick={() => String(pannelOne)[0] === 0 ? console.log('hi') : setNumberOne('0')}>0</button>
+          <button onClick={() => setPannelOne(0) }>Clear</button>
           <button onClick={() => setPannelOne(storedNumber)}>Recall</button>
+          <button onClick={() => pannelOne.includes('.') ? console.log('hi') : setNumberOne('.')}>.</button>
         </div>
       </div>
 
@@ -69,9 +74,10 @@ function App() {
           <button onClick={() => setNumberTwo('7')}>7</button>
           <button onClick={() => setNumberTwo('8')}>8</button>
           <button onClick={() => setNumberTwo('9')}>9</button>
-          <button onClick={() => pannelTwo === 0 ? console.log('hi') : setNumberTwo('0')}>0</button>
-          <button onClick={() => setPannelTwo('0')}>Clear</button>
+          <button onClick={() => String(pannelTwo)[0] === 0 ? console.log('hi') : setNumberTwo('0')}>0</button>
+          <button onClick={() => setPannelTwo(0)}>Clear</button>
           <button onClick={() => setPannelTwo(storedNumber)}>Recall</button>
+          <button onClick={() => pannelTwo.includes('.') ? console.log('hi') : setNumberTwo('.')}>.</button>
         </div>
       </div>
       <div className="panel answer">
